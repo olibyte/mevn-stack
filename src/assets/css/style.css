@@ -1,3 +1,13 @@
 .custom-bg-dark {
     background-color: #373f46 !important;
 }
+nav.navbar {
+    height: 6rem;
+}
+a.navbar-brand {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+li.nav-item a {
+    text-transform: uppercase;
+}
