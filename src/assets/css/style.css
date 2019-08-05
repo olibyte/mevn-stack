@@ -1,6 +1,6 @@
 * {
-    color: white;
-}/**/
+    color: #fff;
+}
 .custom-bg-dark {
     background-color: #373f46 !important;
 }
@@ -35,4 +35,15 @@ div#app-container {
     padding:2rem;
     background-color: #1d2733;
     overflow: auto;
+}
+footer#custom-footer {
+    height: 6rem;
+    background-color: #373f46;
+    font-size: 1rem;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
