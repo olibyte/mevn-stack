@@ -56,5 +56,6 @@ export default new Router({
     //  component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     //}
   ],
-  linkActiveClass: 'active'
+  linkActiveClass: 'active',
+  mode: 'history'
 })
