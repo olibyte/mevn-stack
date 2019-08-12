@@ -13,5 +13,9 @@ export default {
   components: {
     HelloWorld
   }
+  //beforeEnter: (to, from, next) => {
+    //Get data from Server
+    //http.get()...
+  //}
 }
 </script>

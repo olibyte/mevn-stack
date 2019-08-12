@@ -9,7 +9,9 @@ import TasksCreate from './views/tasks/TasksCreate'
 
 Vue.use(Router)
 
-export default new Router({
+const isLoggedIn = true;
+
+const routes = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -21,27 +23,67 @@ export default new Router({
     {
       path: '/tasks',
       name: 'tasks-all',
-      component: TasksAll
+      component: TasksAll,
+      beforeEnter: (toolbar, from, next) => {
+        if (isLoggedIn) {
+          next();
+        }
+        else {
+          next('/login');
+        }
+      }
     },
     {
       path: '/tasks/new',
       name: 'tasks-create',
-      component: TasksCreate
+      component: TasksCreate,
+      beforeEnter: (toolbar, from, next) => {
+        if (isLoggedIn) {
+          next();
+        }
+        else {
+          next('/login');
+        }
+      }
     },
     {
       path: '/tasks/:id',
       name: 'tasks/edit',
-      component: TasksEdit
+      component: TasksEdit,
+      beforeEnter: (toolbar, from, next) => {
+        if (isLoggedIn) {
+          next();
+        }
+        else {
+          next('/login');
+        }
+      }
     },
     {
       path: '/register',
       name: 'register',
-      component: Register
+      component: Register,
+      beforeEnter: (toolbar, from, next) => {
+        if (!isLoggedIn) {
+          next();
+        }
+        else {
+          next('/');
+        }
+      }
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
+      beforeEnter: (toolbar, from, next) => {
+        if (!isLoggedIn) {
+          next();
+        }
+        else {
+          next('/');
+        }
+      }
     },
     {
       path: '*',
@@ -51,3 +93,5 @@ export default new Router({
   linkActiveClass: 'active',
   mode: 'history'
 })
+
+export default routes;
