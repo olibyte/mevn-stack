@@ -9,7 +9,7 @@ import TasksCreate from './views/tasks/TasksCreate'
 
 Vue.use(Router)
 
-const isLoggedIn = true;
+const isLoggedIn = false;
 
 const routes = new Router({
   mode: 'history',
@@ -24,7 +24,7 @@ const routes = new Router({
       path: '/tasks',
       name: 'tasks-all',
       component: TasksAll,
-      beforeEnter: (toolbar, from, next) => {
+      beforeEnter: (to, from, next) => {
         if (isLoggedIn) {
           next();
         }
@@ -37,7 +37,7 @@ const routes = new Router({
       path: '/tasks/new',
       name: 'tasks-create',
       component: TasksCreate,
-      beforeEnter: (toolbar, from, next) => {
+      beforeEnter: (to, from, next) => {
         if (isLoggedIn) {
           next();
         }
