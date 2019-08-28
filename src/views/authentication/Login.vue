@@ -16,3 +16,10 @@
     </form>
   </div>
 </template>
+
+<script>
+  import * as auth from '../../services/AuthService'
+  export default {
+    name: 'login'
+  }
+</script>
