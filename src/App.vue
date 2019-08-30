@@ -16,6 +16,9 @@
     components: {
       Navbar,
       Footer
+    },
+    beforeCreate: function() {
+      this.$store.dispatch('authenticate');
     }
   }
 </script>
