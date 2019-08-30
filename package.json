@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "babel dev-server --out-dir prod-server && vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dev": "babel dev-server --out-dir prod-server --watch"
+    "dev": "concurrently \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\" "
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -24,6 +24,7 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
     "babel-preset-env": "^1.7.0",
+    "concurrently": "^4.1.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.6.10"
