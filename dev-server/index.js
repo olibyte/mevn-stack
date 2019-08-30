@@ -1,5 +1,5 @@
-//nodemon is a tool that helps develop node.js based 
-//applications by automatically restarting the node application when file changes in the directory are detected.
+//nodemon is a tool that helps develop node.js based applications by automatically restarting the node 
+//application when file changes in the directory are detected.
 const express = require('express')
 const app = express()
 const port = 3000
