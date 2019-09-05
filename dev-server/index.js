@@ -5,7 +5,9 @@ import express from 'express';
 const app = express();
 const port = 3000
 import { registerRoutes } from './routes';
+import { setEnvironment } from './config/env';
 
+setEnvironment(app);
 registerRoutes(app);
 
 app.get('/', (req, res) => res.send('Hello World!'))
