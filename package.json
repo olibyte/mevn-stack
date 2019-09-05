@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "babel dev-server --out-dir prod-server && vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dev": "concurrently \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\" "
+    "dev": "concurrently \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\" ",
+    "temp": ""
   },
   "dependencies": {
     "body-parser": "^1.19.0",
