@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 
-export function setEnvironments(app) {
+export function setEnvironment(app) {
     if (process.env.NODE_ENV !== 'production') { //if we're in development mode...
         setDevEnv(app);
     } else {
@@ -11,7 +11,7 @@ export function setEnvironments(app) {
     }
 }
 function setDevEnv(app) {
-    console.log("setting the development environment");
+    process.env.NODE_ENV = 'development';
     app.use(bodyParser.json);
     app.use(morgan('dev'));
     app.use(cors());
