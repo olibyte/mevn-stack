@@ -33,12 +33,14 @@ function setEnvironment(app) {
 }
 function setDevEnv(app) {
     process.env.NODE_ENV = 'development';
-    app.use(_bodyParser2.default.json);
+    process.env.DB_URL = 'mongodb://localhost:27017/vue-db';
+    app.use(_bodyParser2.default.json());
     app.use((0, _morgan2.default)('dev'));
     app.use((0, _cors2.default)());
 }
 function setProdEnv(app) {
-    app.use(_bodyParser2.default.json);
+    process.env.DB_URL = 'mongodb://localhost:27017/prod-db';
+    app.use(_bodyParser2.default.json());
     app.use(_express2.default.static(__dirname + '/../dist')); //take build folder and serve it as static content
     console.log("setting the production environment");
 }
