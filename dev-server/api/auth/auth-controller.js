@@ -18,7 +18,7 @@ export function index(req, res) {
         if(!passwordsMatch) {
             return res.status(401).json();
         }
-        return res.status(201).json(); //else, authenticated
+        return res.status(201).json(); //else, authenticated.
     });
 }
 
