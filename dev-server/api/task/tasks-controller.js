@@ -42,7 +42,7 @@ export function remove(req,res) {
     return res.status(204).json();
 }
 export function show(req,res) {
-    //GET TASK BY ID
+    //GET TASK BY  ID
     Task.findOne({ _id: req.params.id}, (error, tasks) => { 
         if(error) {
             return res.status(500).json();
