@@ -28,6 +28,9 @@ userSchema.virtual('fullName').get(function () {
     var last = _stringUtil.StringUtil.capitalize(this.last.toLowerCase());
     return first + ' ' + last;
 });
+userSchema.statics.passwordsMatch = function (password, hash) {
+    return _bcryptNodejs2.default.compareSync(password, hash);
+};
 userSchema.pre('save', function (next) {
     this.username = this.username.toLowerCase(); //convert all to lowercase for consistency in db
     this.first = this.first.toLowerCase();

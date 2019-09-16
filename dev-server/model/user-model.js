@@ -14,7 +14,7 @@ userSchema.virtual('fullName').get(function() {
     const last = StringUtil.capitalize(this.last.toLowerCase());
     return `${first} ${last}`;
 });
-userSchema.statics.passwordMatches = function(password, hash) {
+userSchema.statics.passwordsMatch = function(password, hash) {
     return bcrypt.compareSync(password, hash);
 }
 userSchema.pre('save', function(next) {
