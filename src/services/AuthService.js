@@ -11,6 +11,9 @@ export function login(user) {
     return http().post('/auth', user)
         .then(res => {
             if (res) {
+                console.log(res.data.token);
+                
+                
                 setToken(res.data.token);
             }
         });
