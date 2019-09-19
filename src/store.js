@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as auth from './services/AuthService'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     isLoggedIn: false,
-    apiUrl: 'http://localhost:3000/api',
+    apiUrl: `${window.location.protocol}//${window.location.hostname}:3000/api`,
     username: null,
     userId: null
   },
@@ -16,10 +17,9 @@ export default new Vuex.Store({
       if (state.isLoggedIn) {
         state.username = auth.getUsername();
         state.userId = auth.getUserId();
-      }
-      else {
-        state.username = null;
+      } else {
         state.userId = null;
+        state.username = null;
       }
     }
   },

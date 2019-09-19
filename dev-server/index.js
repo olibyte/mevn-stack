@@ -1,27 +1,27 @@
-//nodemon is a tool that helps develop node.js based applications by automatically restarting the node 
-//application when file changes in the directory are detected.
-//const express = require('express')
 import express from 'express';
 const app = express();
-const port = 3000
 import { registerRoutes } from './routes';
 import { setEnvironment } from './config/env';
 import { connectToDB } from './config/db';
 
 setEnvironment(app);
-connectToDB(app);
+connectToDB();
 registerRoutes(app);
 
-app.get('/', (req, res) => {
-    if (process.env.NODE_ENV !== 'production') {
+// All non-API requests made to the server, for example, http://www.homepage.com/,
+// will hit this request, which just returns the main layout, html file
+app.get('*', (req, res) => {
+    if (!process.env.NODE_ENV || process.env.NODE_ENV.toString().trim() !== 'production') {
         return res.send(
             'Running server in development mode.'
         );
     } else {
-        return res.sendFile('index.html', { root:  __dirname + '/../dist/' });
+        // Returns the main index file in production environment
+        return res.sendFile('index.html', { root: __dirname + '/../dist/' });
     }
 })
 
-app.listen(port, () => {
-    console.log(`Oliver's MEVN app listening on port ${port} in ${process.env.NODE_ENV} mode!`);
+// Starts the server on the given port
+app.listen(3000, () => {
+    console.log('MEVN app listening on port 3000 in ' + process.env.NODE_ENV + ' mode!');
 });

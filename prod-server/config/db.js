@@ -17,7 +17,7 @@ function connectToDB() {
             console.log('Unable to connect to database');
             throw error;
         } else {
-            console.log('Connected to MongoDB');
+            console.log('Connected to MongoDB!');
         }
     });
 }

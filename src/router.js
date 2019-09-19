@@ -3,16 +3,14 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Login from './views/authentication/Login.vue'
 import Register from './views/authentication/Register.vue'
-import TasksAll from './views/tasks/TasksAll'
-import TasksEdit from './views/tasks/TasksEdit'
-import TasksCreate from './views/tasks/TasksCreate'
+import TasksAll from './views/tasks/TasksAll.vue'
+import TasksCreate from './views/tasks/TasksCreate.vue'
+import TasksEdit from './views/tasks/TasksEdit.vue'
 import * as auth from './services/AuthService'
 
 Vue.use(Router)
 
-const routes = new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
+export default new Router({
   routes: [
     {
       path: '/',
@@ -24,10 +22,10 @@ const routes = new Router({
       name: 'tasks-all',
       component: TasksAll,
       beforeEnter: (to, from, next) => {
-        if (isLoggedIn) {
+        // Navigation Guard protects this route. User must be logged in, else will be routed to login page
+        if (auth.isLoggedIn()) {
           next();
-        }
-        else {
+        } else {
           next('/login');
         }
       }
@@ -37,23 +35,21 @@ const routes = new Router({
       name: 'tasks-create',
       component: TasksCreate,
       beforeEnter: (to, from, next) => {
-        if (auth.isLoggedIn) {
+        if (auth.isLoggedIn()) {
           next();
-        }
-        else {
+        } else {
           next('/login');
         }
       }
     },
     {
       path: '/tasks/:id',
-      name: 'tasks/edit',
+      name: 'tasks-edit',
       component: TasksEdit,
-      beforeEnter: (toolbar, from, next) => {
-        if (auth.isLoggedInisLoggedIn) {
+      beforeEnter: (to, from, next) => {
+        if (auth.isLoggedIn()) {
           next();
-        }
-        else {
+        } else {
           next('/login');
         }
       }
@@ -62,11 +58,10 @@ const routes = new Router({
       path: '/register',
       name: 'register',
       component: Register,
-      beforeEnter: (toolbar, from, next) => {
-        if (!auth.isLoggedIn) {
+      beforeEnter: (to, from, next) => {
+        if (!auth.isLoggedIn()) {
           next();
-        }
-        else {
+        } else {
           next('/');
         }
       }
@@ -75,11 +70,10 @@ const routes = new Router({
       path: '/login',
       name: 'login',
       component: Login,
-      beforeEnter: (toolbar, from, next) => {
-        if (!auth.isLoggedIn) {
+      beforeEnter: (to, from, next) => {
+        if (!auth.isLoggedIn()) {
           next();
-        }
-        else {
+        } else {
           next('/');
         }
       }
@@ -92,5 +86,3 @@ const routes = new Router({
   linkActiveClass: 'active',
   mode: 'history'
 })
-
-export default routes;

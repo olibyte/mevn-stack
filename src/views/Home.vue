@@ -1,28 +1,17 @@
 <template>
   <div id="custom-home">
-    <HelloWorld/>
-  </div>  
+    <HelloWorld />
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  // @ is an alias to /src
+  import HelloWorld from '@/components/HelloWorld.vue'
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  },
-  beforeCreate: function() {
-    fetch(this.$store.state.apiUrl + '/user', {
-      method: 'GET'
-    })
-    //.then(res => res.json())
-    .then(res => console.log(res));
+  export default {
+    name: 'home',
+    components: {
+      HelloWorld
+    }
   }
-  //beforeEnter: (to, from, next) => {
-    //Get data from Server
-    //http.get()...
-  //}
-}
 </script>

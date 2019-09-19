@@ -8,6 +8,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+/**
+ * Performs common operations for strings, such as checking
+ * if the string is empty or null
+ */
 var StringUtil = exports.StringUtil = function () {
     function StringUtil() {
         _classCallCheck(this, StringUtil);

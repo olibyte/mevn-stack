@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <Navbar />
+    <Navbar />
     <div id="app-container">
       <router-view/>
     </div>
@@ -11,6 +11,7 @@
 <script>
   import Navbar from '@/components/Navbar.vue'
   import Footer from '@/components/Footer.vue'
+
   export default {
     name: 'app',
     components: {
@@ -18,6 +19,7 @@
       Footer
     },
     beforeCreate: function() {
+      // Ensure that on app boot, we check if the user is authenticated or not
       this.$store.dispatch('authenticate');
     }
   }
