@@ -49,7 +49,7 @@ export function getUserId() {
 export function registerUser(user) {
     return http().post('/register', user);
 }
-
+//only decode token if we have one.
 function decodeToken() {
     const token = getToken();
     if (!token) {
