@@ -6,7 +6,7 @@
             <router-link to="/tasks/new" class="btn btn-success ml-2" exact>Create Task</router-link>
         </div>
 
-        <div v-if="tasks && tasks.length > 0" class="d-flex flex-wrap justify-content-start">
+        <div v-if="tasks && tasks.length > 0" class="d-flex flex-wrap justify-content-start"> 
 
             <div v-for="task in tasks" v-bind:key="task._id" class="card mb-2 ml-2 text-white bg-dark" style="width: 18rem;">
                 <div class="card-body">
