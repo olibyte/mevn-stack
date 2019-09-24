@@ -15,7 +15,7 @@ Vue.filter('date', (value) => {
     return '';
   }
 
-  return moment(value).format('MMM DD, YYYY');
+  return moment(value).format('MMM, DD, YYYY');
 });
 
 new Vue({

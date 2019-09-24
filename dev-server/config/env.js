@@ -34,7 +34,7 @@ function setDevEnv(app) {
  */
 function setProdEnv(app) {
     process.env.NODE_ENV = 'production';
-    process.env.DB_URL = 'mongodb://user:password123@ds133642.mlab.com:33642/vue-db';
+    process.env.DB_URL = 'mongodb+srv://ocben1:A6764febde@cluster0-4gk8e.mongodb.net/test?retryWrites=true&w=majority';
     process.env.TOKEN_SECRET = '9f4d50bfa6b2450a9ec766fc5104948e';
     app.use(bodyParser.json());
     app.use(express.static(__dirname + '/../../dist'));
