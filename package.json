@@ -8,7 +8,7 @@
     "build": "set NODE_ENV=production && babel dev-server --out-dir prod-server && vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dev": "concurrently \"set NODE_ENV=development\" \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\" "
-  }, 
+  },  
   "dependencies": {
     "axios": "^0.19.0",
     "bcrypt-nodejs": "0.0.3",
