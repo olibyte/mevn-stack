@@ -25,7 +25,7 @@ function setDevEnv(app) {
     app.use(morgan('dev')); // Log HTTP Requests to the node console (for debugging purposes)
     app.use(cors()); // Enable Cross Origin Requests, since Vue.JS is on a different origin
     process.env.DB_URL = 'mongodb://localhost:27017/vue-db';
-    process.env.TOKEN_SECRET = '27946982a9a4408996607fe95a6299f9';
+    process.env.TOKEN_SECRET = 'SECRET';
 }
 
 /**
@@ -34,8 +34,8 @@ function setDevEnv(app) {
  */
 function setProdEnv(app) {
     process.env.NODE_ENV = 'production';
-    process.env.DB_URL = 'mongodb+srv://ocben1:A6764febde@cluster0-4gk8e.mongodb.net/test?retryWrites=true&w=majority';
-    process.env.TOKEN_SECRET = '9f4d50bfa6b2450a9ec766fc5104948e';
+    process.env.DB_URL = 'mongodb+srv://USER:PASSWORD@cluster0-4gk8e.mongodb.net/test?retryWrites=true&w=majority';
+    process.env.TOKEN_SECRET = 'SECRET';
     app.use(bodyParser.json());
     app.use(express.static(__dirname + '/../../dist'));
 }
