@@ -10,7 +10,7 @@
     "dev": "concurrently \"set NODE_ENV=development\" \"babel dev-server --out-dir prod-server --watch\" \"nodemon prod-server/index.js\" \"npm run serve\" "
   }, 
   "dependencies": {
-    "axios": "^0.21.2",
+    "axios": "^1.6.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
