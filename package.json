@@ -19,7 +19,7 @@
     "jquery": "^3.5.0",
     "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.4",
-    "mongoose": "^5.13.20",
+    "mongoose": "^8.8.3",
     "popper.js": "^1.15.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
