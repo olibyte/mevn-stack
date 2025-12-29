@@ -34,7 +34,7 @@
     "babel-preset-env": "^1.7.0",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
-    "eslint": "^5.16.0",
+    "eslint": "^9.39.2",
     "eslint-plugin-vue": "^5.0.0",
     "morgan": "^1.9.1",
     "vue-template-compiler": "^2.6.10"
