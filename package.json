@@ -36,7 +36,7 @@
     "cors": "^2.8.5",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "morgan": "^1.9.1",
+    "morgan": "^1.10.1",
     "vue-template-compiler": "^2.6.10"
   }
 }
